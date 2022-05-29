@@ -41,15 +41,18 @@ var main = function (toDoObjects) {
                 console.log("the tags tab was clicked!");
             
                 var organizeByTags = function (toDoObjects) {
-                    var tags = [];
                 
-                    toDoObjects.forEach(function (toDo) {
+                    var tagObjects = tags.map(function (tag) {
+
+                        var toDosWithTag = [];
+                        toDoObjects.forEach(function (toDo) {
                 
-                        toDo.tags.forEach(function (tag) {
-                            if (tags.indexOf(tag) === -1) {
-                                tags.push(tag);
+                            if (toDo.tags.indexOf(tag) !== -1) {
+                                toDosWithTag.push(toDo.description);
                             }
                         });
+
+                        return { "name": tag, "toDos": toDosWithTag };
                     });
                 
                     console.log(tags);
