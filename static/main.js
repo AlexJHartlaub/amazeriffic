@@ -38,47 +38,24 @@ var main = function (toDoObjects) {
 
 
             } else if ($element.parent().is(":nth-child(3)")) {
-                var tags = [];
-
-                toDoObjects.forEach(function (toDo) {
-                    toDo.tags.forEach(function (tag) {
-                        if (tags.indexOf(tag) === -1) {
-                            tags.push(tag);
-                        }
-                    });
-                });
-                console.log(tags);
-
-                var tagObjects = tags.map(function (tag) {
-                    var toDosWithTag = [];
-
+                console.log("the tags tab was clicked!");
+            
+                var organizeByTags = function (toDoObjects) {
+                    var tags = [];
+                
                     toDoObjects.forEach(function (toDo) {
-                        if (toDo.tags.indexOf(tag) !== -1) {
-                            toDosWithTag.push(toDo.description);
-                        }
+                
+                        toDo.tags.forEach(function (tag) {
+                            if (tags.indexOf(tag) === -1) {
+                                tags.push(tag);
+                            }
+                        });
                     });
+                
+                    console.log(tags);
+                };
 
-                    return {
-                        "name": tag,
-                        "toDos": toDosWithTag
-                    };
-                });
-
-                tagObjects.forEach(function (tag) {
-                    var $tagName = $("<h3>").text(tag.name),
-                        $content = $("<ul>");
-
-
-                    tag.toDos.forEach(function (description) {
-                        var $li = $("<li>").text(description);
-                        $content.append($li);
-                    });
-
-                    $("main .content").append($tagName);
-                    $("main .content").append($content);
-                });
-
-            } else if ($element.parent().is(":nth-child(4)")) {
+            }  else if ($element.parent().is(":nth-child(4)")) {
                 var $input = $("<input>").addClass("description"),
                     $inputLabel = $("<p>").text("Description: "),
                     $tagInput = $("<input>").addClass("tags"),
@@ -87,14 +64,9 @@ var main = function (toDoObjects) {
             
                 $button.on("click", function () {
                     var description = $input.val(),
-                        tags = $tagInput.val().split(","); 
-                        newToDo = {
-                            "description": description,
-                            "tags": tags
-                        }
+                        tags = $tagInput.val().split(","); // split on the comma
             
                     toDoObjects.push({"description":description, "tags":tags});
-            
         
                     toDos = toDoObjects.map(function (toDo) {
                           return toDo.description;
@@ -103,13 +75,13 @@ var main = function (toDoObjects) {
                     $input.val("");
                     $tagInput.val("");
                 });
-            };
             
                 $content = $("<div>").append($inputLabel)
                                      .append($input)
                                      .append($tagLabel)
                                      .append($tagInput)
                                      .append($button);
+            }
             })
         })
     }
