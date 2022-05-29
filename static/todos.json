@@ -1,26 +1,32 @@
 [
     {
-        "description" : "Get groceries",
-        "tags"  : [ "shopping", "chores" ]
+        "name": "shopping",
+        "toDos": ["Get groceries"]
     },
+
     {
-        "description" : "Make up some new ToDos",
-        "tags"  : [ "writing", "work" ]
+        "name": "chores",
+        "toDos": ["Get groceries", "Take Gracie to the park"]
     },
+
     {
-        "description" : "Prep for Monday's class",
-        "tags"  : [ "work", "teaching" ]
+        "name": "writing",
+        "toDos": ["Make up some new ToDos", "Finish writing this book"]
     },
+
     {
-        "description" : "Answer emails",
-        "tags"  : [ "work" ]
+        "name": "work",
+        "toDos": ["Make up some new ToDos", "Prep for Monday's class",
+                  "Answer emails", "Finish writing this book"]
     },
+
     {
-        "description" : "Take Gracie to the park",
-        "tags"  : [ "chores", "pets" ]
+        "name": "teaching",
+        "toDos": ["Prep for Monday's class"]
     },
+
     {
-        "description" : "Finish writing this book",
-        "tags"  : [ "writing", "work" ]
+        "name": "pets",
+        "toDos": ["Take Gracie to the park"]
     }
 ]
